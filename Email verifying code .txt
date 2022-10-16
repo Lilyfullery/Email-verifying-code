@@ -1,0 +1,39 @@
+email = input("enter gmail address :")
+count = 0
+k = 0
+for i in range(len(email)):
+    if(email[i].isalpha()):
+        count = count + 1
+if((email[-3] ==".") ^ (email[-4]==".")):
+    if(("@" in email) and (email.count("@")==1)):
+        total_alpha = 0
+        if(email[0].isalpha()):
+            for i in range(0,len(email)):
+                if(email[i].isalpha()):
+                    if(email[i].lower() == email[i]):
+                        total_alpha = total_alpha + 1
+                    else:
+                        print("invalid email, please lower the email case")
+                        quit()
+                elif(email[i] == " "):
+                    k = 1
+                elif(email[i].isdigit()):
+                    continue
+                elif((email[i] =="_") or (email[i] ==".") or (email[i] =="@")):
+                    continue
+                else:
+                    print("invalid email , special character not allowded")
+                    quit()
+
+            if(k == 1):
+                print("invalid email ,it contains sepcial character")
+                quit()            
+            if(count == total_alpha):
+                print("correct email id")        
+        else:
+            print("invalid email id ")
+    else:
+        print("invalid email special character not allowded")
+else:
+    print("invalid email id") 
+
